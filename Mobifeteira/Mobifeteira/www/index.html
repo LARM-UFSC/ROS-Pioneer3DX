@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;script-src 'self' 'unsafe-inline' 'unsafe-eval';connect-src *;"> 
+
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        
+        <link rel="stylesheet" type="text/css" href="css/index.css">      
+        <link rel="stylesheet" href="css/phonon.css">
+        
+        <title>Hello World</title>
+    </head>
+    <body>
+        <mainpage data-page="true">
+            <header class="header-bar">
+                
+                 <div class="center">
+                    <h1 class="title">Mobifeteira</h1>
+                </div>
+                <a class="btn pull-right icon icon-settings" href="#!settings"></a>
+            </header>
+           
+                
+            <div class="content padded-full" align="center">
+                
+                <div>
+                    <span style="font-size: 20px"> Bateria: </span> <span style="font-size: 20px" id="battery_status"> 0 </span><br><br>
+                
+                    <span style="font-size: 20px"> Sonar: </span> <span style="font-size: 20px" id="sonar_status"> </span><br><br>
+                 
+                    <span style="font-size: 20px"> Laser: </span> <span style="font-size: 20px" id="laser_status"> </span><br><br>
+               
+                    <span style="font-size: 20px"> Posição: </span> <span style="font-size: 20px" id="pose_status"> </span><br><br>
+                
+                </div>
+                
+                <div class="tab-items" style="margin: 10px">
+                    <a class="tab-item" id="SINAL_ACELERA"><img src="img/frente.png" width="30%" height="30%"/></a>
+                </div>
+                <div class="tab-items" style="margin: 10px">
+                    <a class="tab-item" id="SINAL_ESQUERDA"><img src="img/esquerda.png" width="30%" height="30%"/></a>
+                    <a class="tab-item" id="SINAL_RE"><img src="img/tras.png" width="30%" height="30%"/></a>
+                    <a class="tab-item" id="SINAL_DIREITA"><img src="img/direita.png" width="30%" height="30%"/></a>
+                </div>
+                
+            </div>
+        </mainpage>
+        
+        
+        <settings data-page="true">
+        
+            <header class="header-bar">
+                
+                <div class="center">
+                    <h1 class="title">Preferências</h1>
+                </div>
+                <a class="btn pull-right icon icon-arrow-back" href="#!mainpage"></a>
+            </header>
+        
+            <div class="content padded-full" align="center">
+                <ul class="list">
+                    <li class="divider">Ip do robô</li>
+                    <li>
+                         <input style="width: 75%;" type="text" id="ipconfig">
+                         <a class="pull-right icon icon-check" id="submitNewIP"></a>
+                    </li>
+                  
+                    <li class="divider">Configurações Velocidade</li>
+
+
+                    <li class="item-expanded">
+                        <a id="SINAL_AUMLIN" style="font-size:24px" class="pull-right">+</a>
+                        <a id="SINAL_DIMLIN" style="font-size:24px" class="pull-left">&boxh; </a>
+                        <a href="#item">
+                            <div class="item-content">
+                                <span class="title">Linear</span>
+                                <span class="body">Valor: 0.1</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="item-expanded">
+                        <a id="SINAL_AUMANG" style="font-size:24px" class="pull-right">+</a>
+                        <a id="SINAL_DIMANG" style="font-size:24px" class="pull-left">&boxh; </a>
+                        <a href="#item">
+                            <div class="item-content">
+                                <span class="title">Angular</span>
+                                <span class="body">Valor: 0.1</span>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li class="divider">Operabilidade</li>
+                   
+                    <li class="item-expanded">
+                        <a id="SINAL_TELEOP">
+                            <div class="item-content">
+                                <span class="title">Modo de Operação</span>
+                                <span class="body" id="teleop_status">Teleoperando</span>
+                            </div>
+                        </a>
+                    </li>
+                    
+                </ul>
+               
+            </div>
+        
+        </settings>
+        
+        
+        <div class="notification" id="my-notif">
+            Envio: <span id="status_conexao_envio"> Offline </span> | Recebimento: <span id="status_conexao_receb"> Offline </span>
+        </div>
+        
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/phonon.min.js"></script>
+        <script type="text/javascript" src="js/socketio.js"></script> 
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
+

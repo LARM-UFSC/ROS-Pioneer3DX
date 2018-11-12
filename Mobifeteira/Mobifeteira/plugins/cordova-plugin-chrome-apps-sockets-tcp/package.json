@@ -1,0 +1,59 @@
+{
+  "_from": "git+https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-sockets-tcp.git",
+  "_id": "cordova-plugin-chrome-apps-sockets-tcp@1.3.8-dev",
+  "_inBundle": false,
+  "_location": "/cordova-plugin-chrome-apps-sockets-tcp",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-sockets-tcp",
+    "rawSpec": "https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-sockets-tcp",
+    "saveSpec": "git+https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-sockets-tcp.git",
+    "fetchSpec": "https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-sockets-tcp.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-sockets-tcp.git#e6906d8e26d225cf694caf49243df2be979e34a6",
+  "_spec": "https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-sockets-tcp",
+  "_where": "/home/phr/Documentos/Estágio/Mobifeteira/Mobifeteira",
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-sockets-tcp/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-chrome-apps-sockets-tcp",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "This plugin provides TCP client sockets for Android and iOS.",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "homepage": "https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-sockets-tcp",
+  "keywords": [
+    "chrome",
+    "socket",
+    "sockets",
+    "tcp",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "BSD",
+  "name": "cordova-plugin-chrome-apps-sockets-tcp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-sockets-tcp.git"
+  },
+  "version": "1.3.8-dev"
+}

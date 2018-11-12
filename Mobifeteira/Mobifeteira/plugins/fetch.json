@@ -1,0 +1,74 @@
+{
+  "cordova-plugin-whitelist": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-whitelist@1"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cz.blocshop.socketsforcordova": {
+    "source": {
+      "type": "registry",
+      "id": "cz.blocshop.socketsforcordova"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-chrome-apps-sockets-tcp": {
+    "source": {
+      "type": "registry",
+      "id": "https://github.com/MobileChromeApps/cordova-plugin-chrome-apps-sockets-tcp"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-chrome-apps-common": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-chrome-apps-common@1"
+    },
+    "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-network-information": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-network-information"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-networkinterface": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-networkinterface"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-chrome-apps-sockets-tcpserver": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-chrome-apps-sockets-tcpserver@^1.2.4"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-chrome-apps-iossocketscommon": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-chrome-apps-iossocketscommon@1"
+    },
+    "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-chrome-apps-sockets-udp": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-chrome-apps-sockets-udp"
+    },
+    "is_top_level": true,
+    "variables": {}
+  }
+}

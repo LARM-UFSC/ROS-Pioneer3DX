@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;script-src 'self' 'unsafe-inline' 'unsafe-eval';connect-src *;"> 
+
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <!--<link rel="stylesheet" type="text/css" href="css/w3.css">-->       
+        <link rel="stylesheet" href="css/phonon.css">
+        
+        <title>Hello World</title>
+    </head>
+    <body>
+        <!--
+        <div align="center" style="background-color: white">
+            <button class="w3-btn w3-blue w3-margin-bottom w3-xlarge unselectable" id="SINAL_ACELERA"> ↑ </button> <br>
+            <button class="w3-btn w3-blue w3-margin-bottom w3-xlarge unselectable" id="SINAL_ESQUERDA"> ← </button> 
+            <button class="w3-btn w3-blue w3-margin-bottom w3-xlarge unselectable" id="SINAL_DIREITA"> → </button> <br>
+            <button class="w3-btn w3-blue w3-margin-bottom w3-xlarge unselectable" id="SINAL_RE"> ↓ </button><br>
+            <button class="w3-btn w3-blue w3-margin-bottom w3-xlarge unselectable" id="SINAL_PARAR"> Lin - </button><br>
+            <button class="w3-btn w3-blue w3-margin-bottom w3-xlarge unselectable" id="SINAL_DIMLIN"> Lin - </button>
+            <button class="w3-btn w3-blue w3-margin-bottom w3-xlarge unselectable" id="SINAL_AUMLIN"> Lin + </button> <br>
+            <button class="w3-btn w3-blue w3-margin-bottom w3-xlarge unselectable" id="SINAL_DIMANG"> Ang - </button>
+            <button class="w3-btn w3-blue w3-margin-bottom w3-xlarge unselectable" id="SINAL_AUMANG"> Ang + </button> <br>
+            <button class="w3-btn w3-blue w3-margin-bottom w3-xlarge unselectable" id="SINAL_TELEOP"> TELEOP </button> <br>
+            <span id="teleop_status"> Teleoperando </span> <br>
+            <input type="textbox" id="ipconfig">
+            <button class="w3-btn w3-blue w3-margin-bottom w3-large unselectable" id="ChangeIp"> ChangeIp </button> <br>
+        </div>
+        
+        -->
+        <mainpage data-page="true">
+            <header class="header-bar">
+                
+                 <div class="center">
+                    <h1 class="title">Mobifeteira</h1>
+                </div>
+                <a class="btn pull-right icon icon-settings" href="#!settings"></a>
+            </header>
+           
+                
+            <div class="content padded-full" align="center">
+                
+                <div>
+                    <span> Bateria: </span><span id="battery_status"> </span><br>
+                
+                    <span> Sonar: </span><span id="sonar_status"> </span><br>
+                
+                    <span> Laser: </span><span id="laser_status"> </span><br>
+                    
+                    <span id="resposta_r"></span>
+                
+                </div>
+                
+                <div class="tab-items" style="margin: 10px">
+                    <a class="tab-item" id="SINAL_ACELERA"><img src="img/frente.png" width="30%" height="30%"/></a>
+                </div>
+                <div class="tab-items" style="margin: 10px">
+                    <a class="tab-item" id="SINAL_ESQUERDA"><img src="img/esquerda.png" width="30%" height="30%"/></a>
+                    <a class="tab-item" id="SINAL_RE"><img src="img/tras.png" width="30%" height="30%"/></a>
+                    <a class="tab-item" id="SINAL_DIREITA"><img src="img/direita.png" width="30%" height="30%"/></a>
+                </div>
+                
+            </div>
+        </mainpage>
+        
+        
+        <settings data-page="true">
+        
+            <header class="header-bar">
+                
+                <div class="center">
+                    <h1 class="title">Preferências</h1>
+                </div>
+                <a class="btn pull-right icon icon-arrow-back" href="#!mainpage"></a>
+            </header>
+        
+            <div class="content padded-full" align="center">
+                <ul class="list">
+                    <li class="divider">Ip do robô</li>
+                    <li>
+                         <input style="width: 75%;" type="text" id="ipconfig">
+                         <a class="pull-right icon icon-check" id="submitNewIP"></a>
+                    </li>
+                  
+                    <li class="divider">Configurações Velocidade</li>
+
+
+                    <li class="item-expanded">
+                        <a id="SINAL_AUMLIN" style="font-size:24px" class="pull-right">+</a>
+                        <a id="SINAL_DIMLIN" style="font-size:24px" class="pull-left">&boxh; </a>
+                        <a href="#item">
+                            <div class="item-content">
+                                <span class="title">Linear</span>
+                                <span class="body">Valor: 0.1</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="item-expanded">
+                        <a id="SINAL_AUMANG" style="font-size:24px" class="pull-right">+</a>
+                        <a id="SINAL_DIMANG" style="font-size:24px" class="pull-left">&boxh; </a>
+                        <a href="#item">
+                            <div class="item-content">
+                                <span class="title">Angular</span>
+                                <span class="body">Valor: 0.1</span>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li class="divider">Operabilidade</li>
+                   
+                    <li class="item-expanded">
+                        <a id="SINAL_TELEOP">
+                            <div class="item-content">
+                                <span class="title">Modo de Operação</span>
+                                <span class="body" id="teleop_status">Teleoperando</span>
+                            </div>
+                        </a>
+                    </li>
+                    
+                </ul>
+               
+            </div>
+        
+        </settings>
+        
+        
+        
+        
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/phonon.min.js"></script>
+        <script type="text/javascript" src="js/socketio.js"></script> 
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
+
