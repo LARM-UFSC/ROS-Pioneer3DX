@@ -6,4 +6,4 @@
 
 
 #### Links Úteis:
-**Distribuições ROS: ** http://wiki.ros.org/Distributions
+**Distribuições ROS:** http://wiki.ros.org/Distributions
