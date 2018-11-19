@@ -4,7 +4,3 @@
 
 #### Links Úteis:
 **Distribuições ROS:** http://wiki.ros.org/Distributions
----
-permalink: /
-title: Introduction (or whatever title you choose)
----
