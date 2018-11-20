@@ -1,11 +1,12 @@
 
 var AppSocketId, AppSocketIdS;
-var ip = "192.168.1.204";
+var ip = "192.168.1.214";
 var myip;
 var dataG;
 
 var status_receb = document.getElementById("status_conexao_receb");
 var status_envio = document.getElementById("status_conexao_envio");
+
 
 var app = {
     initialize: function() {
@@ -74,11 +75,14 @@ var app = {
                         if (socketInfo.connected == false){
                             status_envio.style.color = "red";
                             status_envio.innerText = "Offline."
+                            chrome.sockets.tcp.close(AppSocketId, function (){
+                                alert("Socket de Envio desconectado");
+                            });
                         }
                     }
                 });
             }
-        }, 3000);
+        }, 2000);
 
 
 
@@ -87,7 +91,7 @@ var app = {
 
         /* Socket de Recebimento */
 
-        var socketR = new Socket();
+        let socketR = new Socket();
 
         socketR.open(ip, 7778, function() {
             alert("Socket de recebimento conectado.");
@@ -126,6 +130,13 @@ setInterval(function(){
     
     j += dataw.sonar.position[dataw.sonar.position.length-1].distance + "]";
     document.getElementById("sonar_status").innerText = j;
+    j = "[";
+    for (let i = 0; i < dataw.lasers_.position.length - 1; i++)
+        j += dataw.lasers_.position[i] + ", ";
+    if (dataw.lasers_.position.length)
+        j += dataw.lasers_.position[dataw.lasers_.position.length-1];
+    j += "]";
+    document.getElementById("laser_status").innerText = j;
 }, 2000)
 
 
@@ -230,6 +241,48 @@ document.getElementById("submitNewIP").addEventListener("click", function(ev){
     let data = document.getElementById("ipconfig").value;
     ip = data;
 
+    /* Socket de envio */ 
+    chrome.sockets.tcp.create(function(ev){
+        AppSocketId = ev.socketId;
+        chrome.sockets.tcp.connect(AppSocketId, ip, 7777, function(ev2){
+            chrome.sockets.tcp.setPaused(AppSocketId, false);
+            if (ev2 >= 0){
+                alert("Socket de envio conectado");
+                status_envio.style.color = "green";
+                status_envio.innerText = "Online."
+            } else {
+                status_envio.style.color = "red";
+                status_envio.innerText = "Offline."
+                return false;
+            }
+        });
+    });
+
+    /* Socket de informação */
+
+    let socketR = new Socket();
+
+    socketR.open(ip, 7778, function() {
+        alert("Socket de recebimento conectado.");
+        status_receb.style.color = "green";
+        status_receb.innerText = "Online."
+    }, function(errorMessage) {
+        status_receb.style.color = "red";
+        status_receb.innerText = "Offline."
+        alert(errorMessage);
+    });
+
+    socketR.onData = function(data) {
+        dataG = data;
+    };
+
+    socketR.onClose = function(hasError) {
+        status_receb.style.color = "red";
+        status_receb.innerText = "Offline."
+        alert("Socket de Recebimento desconectado")
+    };
+
+/*
     chrome.sockets.tcpServer.disconnect(AppSocketIdS, function (ev){
         chrome.sockets.tcp.disconnect(AppSocketId, function (ev){
             alert("Server socket re-open");
@@ -247,7 +300,7 @@ document.getElementById("submitNewIP").addEventListener("click", function(ev){
                 } 
             });     
         });
-    });
+    });*/
 });
 
 function getData(msg){
