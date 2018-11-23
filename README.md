@@ -17,3 +17,6 @@ Aquivo genérico de configuração de um projeto.
 
 ### MobileSim:
 Disponibilizada a versão do mobilesim para Ubuntu 16.04, visto que o site da mobilerobots encontra-se inacessível.
+
+### rosaria
+Pacote fornecido pelo ROS para controlar o robô.
